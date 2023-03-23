@@ -1,0 +1,33 @@
+---
+title: "Resume"
+author: "Siddhesh R. Kudale"
+date: "2023-03-23"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+install.packages("devtools")
+devtools::install_github('ropenscilabs/icon')
+remotes::install_github('mitchelloharawild/icons@v0.1.0')
+devtools::install_github("nstrayer/datadrivencv")
+install.packages("datadrivencv")
+library(datadrivencv)
+```
+
+```{r, eval = FALSE, echo = TRUE}
+# ?datadrivencv::use_datadriven_cv
+datadrivencv::use_datadriven_cv(
+  full_name = "Siddhesh Kudale",
+  data_location = "https://docs.google.com/spreadsheets/d/1dsSZjs8-yAzcLSCFRH12gWw_WY_9PgiIgCqxlBr8GPM/edit#gid=917338460",
+   pdf_location = "https://github.com/skudale2/resume/skudale_resume.pdf",
+  html_location = "https://github.com/skudale2/resume",
+  source_location = "https://github.com/skudale2/resume"
+)
+```
+
+
+
