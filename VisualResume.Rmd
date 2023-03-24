@@ -1,0 +1,60 @@
+---
+name: Siddhesh
+surname: Kudale
+position: "Transportation Planner"
+address: "2201 Hazelwood Dr., Urbana, IL, USA - 61801"
+phone: +1 217 850 5327
+www: siddheshkudale.com
+email: "skudale2@illinois.edu"
+twitter: skudale2
+github: skudale2
+linkedin: siddheshkudale
+date: "`r format(Sys.time(), '%B %Y')`"
+output: 
+  vitae::hyndman
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+install.packages("vitae")
+library(vitae)
+library(tidyverse)
+library(googlesheets4)
+```
+
+```{r education}
+googlesheets4::read_sheet("https://docs.google.com/spreadsheets/d/1dsSZjs8-yAzcLSCFRH12gWw_WY_9PgiIgCqxlBr8GPM/edit#gid=917338460", sheet = "entries") %>%
+  vitae::detailed_entries(what = section,
+                          when = start,
+                          where = title, 
+                          with = loc, 
+                          why = description_2)
+```
+
+```{r}
+# install.packages("devtools") # Only if you don't have the devtools package
+devtools::install_github("ndphillips/VisualResume")
+```
+
+```{r}
+VisualResume::VisualResume(
+titles.left = c("Siddhesh Kudale", "Transportation Planner", "Urban Mobility × Strategy, Policy, & Analytics"),
+titles.right = c("www.siddheshkudale.com", "skudale2@illinois.edu"),
+timeline.labels = c("Education"),
+timeline = data.frame(title = c("School of Planning & Architecture, Delhi", "University of Illinois Urbana-Champaign", "CURE, India", "Institute of Urban Transport", "Univ. of Iowa", "DURP, UIUC", "BRIDGE Project, UIUC", "Lochmueller Group"),
+                      sub = c("Bachelor of Planning", "Master of Urban Planning (Transportation Concentration)", "GIS Intern", "Project Intern", "Research Assistant", "TA for UP 160, UP 260", "Research Assistant", "Traffic Engineering & Planning Intern"),
+                      start = c(2017.5, 2021.8, 2018.5, 2019.5, 2020.9, 2022.8, 2023, 2022.5),
+                      end = c(2021.5, 2023.5, 2018.7, 2019.7, 2020.15, 2023, 2023.5, 2023.5),
+                      side = c(1, 1, 0, 0, 0, 0, 0, 0)),
+milestones = data.frame(title = c("B. Plan", "MUP"),
+                        sub = c("Planning", "Urban Planning"),
+                        year = c(2021, 2023)),
+events = data.frame(year = c(2018.6, 2019.12, 2020.5, 2021.5, 2022.7),
+                    title = c("Presentated an Original Idea: Bio-CNG for Intermodal Linkages", "Conference Presentation on Standability of Mass Transit Options", "Completed two courses at ISRO on GIS & Photogrammetry during COVID-19", "Received the prestigious Fine and Applied Arts Scholarship", "Started Graduate Minor in Global Studies")),
+interests = list("programming" = c(rep("R", 10), rep("Python", 1), rep("JavaScript", 2)),
+                 "planning" = c(rep("Transportation", 8), rep("Equity", 5), rep("Transit", 5), rep("Last mile", 4)),
+                 "leadership" = c(rep("Motivation", 3), rep("Decision Making", 5), rep("Critical Thinking", 5))),
+year.steps = 1
+)
+```
+
